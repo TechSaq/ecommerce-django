@@ -9,6 +9,7 @@ DEBUG = True
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '-05sgp9!deq=q1nltm@^^2cc+v29i(tyybv3v2t77qi66czazj'
 ALLOWED_HOSTS = ['arwaecomm.herokuapp.com']
+DATABASE_URL = os.environ['DATABASE_URL']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -66,17 +67,22 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-DATABASES = {
-    # "default": {
-    #     'ENGINE': 'django.db.backends.postgresql_psycopg2',
-    #     'NAME': 'arwaecommdb',
-    #     'USER': 'arwa',
-    #     'PASSWORD': 'arwa.ecomm',
-    #     'HOST': 'localhost',
-    #     'PORT': '',
-    # }
-    "default" : config(DATABASE_URL)
-}
+if DEBUG == True:
+    DATABASES = {
+        "default": {
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+            'NAME': 'arwaecommdb',
+            'USER': 'arwa',
+            'PASSWORD': 'arwa.ecomm',
+            'HOST': 'localhost',
+            'PORT': '',
+        }
+    }
+
+if not DEBUG:
+    DATABASES = {
+        "default": config(DATABASE_URL)
+    }
 
 if ENVIRONMENT == 'production':
     DEBUG = False
