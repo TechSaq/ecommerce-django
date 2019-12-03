@@ -89,7 +89,7 @@ DATABASES = {
         'HOST': 'c2-54-227-249-108.compute-1.amazonaws.com',
         'PORT': 'e5432',
     }
-    # }
+}
 
 if ENVIRONMENT == 'production':
     DEBUG = False
