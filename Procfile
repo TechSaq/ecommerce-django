@@ -1,0 +1,1 @@
+web: gunicorn arwaecomm.wsgi --log-file - 
