@@ -168,7 +168,7 @@ class CheckoutView(LoginRequiredMixin, View):
                             shipping_address.default = True
                             shipping_address.save()
                     else:
-                        messages.warning(self.request.user, "Please fill the valid values!!")
+                        messages.warning(self.request, "Please fill the valid values!!")
                         return redirect("core:checkout")
                         
                 use_default_billing = form.cleaned_data.get('use_default_billing')
