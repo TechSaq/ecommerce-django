@@ -1,0 +1,68 @@
+/* ----------carousel--------- */
+
+.carousel-item img {
+    width: 100%;
+    height: 670px;
+    opacity: 0.9;
+    object-fit: cover;
+}
+
+.carousel-caption {
+    background: #000000a4;
+    width: 100%;
+    left: 0;
+    right: 0;
+    top: 55%;
+    height: 150px;
+}
+
+.carousel-caption h5 {
+    font-size: 4em;
+    color: rgb(238, 232, 232);
+}
+
+.carousel-caption p {
+    font-size: 2em;
+    color: rgb(238, 232, 232);
+}
+
+
+/* ----------carousel--------- */
+
+
+/* ----------card--------- */
+
+.view-bg {
+    background: linear-gradient(to bottom, rgba(245, 245, 178, 0.466), rgba(212, 212, 203, 0.87)), url('../../base/images/body-bg.jpg') fixed;
+}
+
+.card-container {
+    position: relative;
+    top: -100px;
+    padding: 0 10%;
+}
+
+.card {
+    height: 400px;
+    margin-bottom: 20%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border: none;
+}
+
+.card-img-bottom {
+    height: 350px;
+    object-fit: cover;
+}
+
+.card-title {
+    font-size: 2em;
+    font-weight: bold;
+}
+
+.card a {
+    height: 350px;
+    background: #797777a4;
+}
+
+
+/* ----------card--------- */

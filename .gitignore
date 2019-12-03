@@ -1,0 +1,46 @@
+env
+**/*.pyc
+**/__pycache__
+media
+.DS_Store
+*.sqlite3
+*.env
+
+# Accept these files in the repository
+!.gitignore
+!.travis.yml
+/.env
+/.vscode
+
+# Django #
+*.log
+*.pot
+*.pyc
+__pycache__
+db.sqlite3
+media
+
+# Python # 
+*.py[cod] 
+*$py.class 
+*__pycache__*
+
+# Environments 
+.env 
+.venv 
+env/ 
+venv/ 
+ENV/ 
+env.bak/ 
+venv.bak/
+vecomm
+
+# Visual Studio Code # 
+.vscode/* 
+!.vscode/settings.json 
+!.vscode/tasks.json 
+!.vscode/launch.json 
+!.vscode/extensions.json 
+.history
+
+settings.ini
