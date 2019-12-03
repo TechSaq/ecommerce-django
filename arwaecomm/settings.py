@@ -67,14 +67,15 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 DATABASES = {
-    "default": {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'arwaecommdb',
-        'USER': 'arwa',
-        'PASSWORD': 'arwa.ecomm',
-        'HOST': 'localhost',
-        'PORT': '',
-    }
+    # "default": {
+    #     'ENGINE': 'django.db.backends.postgresql_psycopg2',
+    #     'NAME': 'arwaecommdb',
+    #     'USER': 'arwa',
+    #     'PASSWORD': 'arwa.ecomm',
+    #     'HOST': 'localhost',
+    #     'PORT': '',
+    # }
+    "default" : config(DATABASE_URL)
 }
 
 if ENVIRONMENT == 'production':
