@@ -212,8 +212,6 @@
             <div class="col-md-6  col-lg-4 mb-4">
               <div class="card">
                 <div class="view overlay zoom">
-                  {% comment %} <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/12.jpg" class="card-img-top img-fluid"
-                    alt=""> {% endcomment %}
                   <img src={{ item.image.url }} class="card-img-top img-fluid">
                   <a href="{{ item.get_absolute_url }}">
                     <div class="mask rgba-white-slight"></div>
@@ -227,31 +225,6 @@
                     </strong>
                   </h5>
                 </div>
-                {% comment %} <div class="card-body text-center">
-                  <a href="{{ item.get_absolute_url }}" class="grey-text">
-                    <h5>{{ item.get_category_display }}</h5>
-                  </a>
-                  <h5>
-                    <strong>
-                      <a href="" class="dark-grey-text">{{ item.title }}
-                        <span class="badge badge-pill {{ item.get_label_display }}-color">NEW</span>
-                      </a>
-                    </strong>
-                  </h5>
-
-                  <h4 class="font-weight-bold blue-text">
-                    <strong>
-
-                    {% if item.discount_price %}
-                      ${{ item.discount_price }}
-                    {% else %}
-                      ${{ item.price }}
-                    {% endif %}
-                    
-                    </strong>
-                  </h4>
-
-                </div> {% endcomment %}
               </div>
             </div>
           {% endfor %}
