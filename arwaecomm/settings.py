@@ -10,7 +10,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = os.environ.get('SECRET_KEY')
 ALLOWED_HOSTS = ['arwaecomm.herokuapp.com']
 DATABASE_URL = os.environ.get('DATABASE_URL')
-DEBUG_PROPAGATE_EXCEPTIONS= True
+DEBUG_PROPAGATE_EXCEPTIONS = True
 
 INSTALLED_APPS = [
     'django.contrib.admin',
