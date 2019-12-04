@@ -5,11 +5,13 @@ from decouple import config
 
 ENVIRONMENT = os.getenv('ENVIRONMENT', 'development')
 
-DEBUG = True
+DEBUG = False
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-SECRET_KEY = '-05sgp9!deq=q1nltm@^^2cc+v29i(tyybv3v2t77qi66czazj'
+SECRET_KEY = os.environ.get('SECRET_KEY')
 ALLOWED_HOSTS = ['arwaecomm.herokuapp.com']
-DATABASE_URL = os.environ['DATABASE_URL']
+DATABASE_URL = os.environ.get('DATABASE_URL')
+
+print(SECRET_KEY)
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -29,6 +31,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -64,6 +67,8 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'assets')]
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
@@ -81,14 +86,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # if not DEBUG:
 DATABASES = {
-    "default": {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'db9r1sf2n5q8pr',
-        'USER': 'ikfmmqwfuywozn',
-        'PASSWORD': '058093adb59bf98cda31d57891fa854bdada6a01c2725ab33c52cf12a0aec9ba',
-        'HOST': 'ec2-54-227-249-108.compute-1.amazonaws.com',
-        'PORT': '5432',
-    }
+    "default": {}
 }
 
 if ENVIRONMENT == 'production':
@@ -115,3 +113,7 @@ LOGIN_REDIRECT_URL = '/'
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 STRIPE_SECRET_KEY = "sk_test_3pALFqN1hDtd3CojPFW88dWi009Ybdrqsy"
+
+db_from_env = dj_database_url.config(conn_max_age=500)
+DATABASES['default'].update(db_from_env)
+print(DATABASES)
