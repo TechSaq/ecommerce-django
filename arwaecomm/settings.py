@@ -5,7 +5,7 @@ from decouple import config
 
 ENVIRONMENT = os.getenv('ENVIRONMENT', 'development')
 
-DEBUG = False
+DEBUG = True
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = os.environ.get('SECRET_KEY')
 ALLOWED_HOSTS = ['arwaecomm.herokuapp.com']
