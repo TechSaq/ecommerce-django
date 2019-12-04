@@ -71,19 +71,6 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-# if DEBUG == True:
-#     DATABASES = {
-#         "default": {
-#             'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#             'NAME': 'arwaecommdb',
-#             'USER': 'arwa',
-#             'PASSWORD': 'arwa.ecomm',
-#             'HOST': 'localhost',
-#             'PORT': '',
-#         }
-#     }
-
-# if not DEBUG:
 DATABASES = {
     "default": {}
 }

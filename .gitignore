@@ -1,6 +1,7 @@
 env
 **/*.pyc
 **/__pycache__
+media
 .DS_Store
 *.sqlite3
 *.env
