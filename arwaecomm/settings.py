@@ -10,8 +10,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = os.environ.get('SECRET_KEY')
 ALLOWED_HOSTS = ['arwaecomm.herokuapp.com']
 DATABASE_URL = os.environ.get('DATABASE_URL')
-
-print(SECRET_KEY)
+DEBUG_PROPAGATE_EXCEPTIONS= True
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -116,4 +115,3 @@ STRIPE_SECRET_KEY = "sk_test_3pALFqN1hDtd3CojPFW88dWi009Ybdrqsy"
 
 db_from_env = dj_database_url.config(conn_max_age=500)
 DATABASES['default'].update(db_from_env)
-print(DATABASES)
