@@ -33,7 +33,7 @@
 /* ----------card--------- */
 
 .view-bg {
-    background: linear-gradient(to bottom, rgba(245, 245, 178, 0.466), rgba(212, 212, 203, 0.87)), url('../../base/images/body-bg.jpg') fixed;
+    background: linear-gradient(to bottom, rgba(245, 245, 178, 0.466), rgba(212, 212, 203, 0.87)), url('../../img/body-bg.jpg') fixed;
 }
 
 .card-container {
