@@ -117,7 +117,6 @@ AWS_S3_OBJECT_PARAMETERS = {
 DEFAULT_FILE_STORAGE = 'app.storage_backends.MediaStorage'
 STATICFILES_STORAGE = "storages.backends.s3boto3.S3Boto3Storage"
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),
     os.path.join(BASE_DIR, 'assets')
 ]
 STATIC_ROOT = 'static'
@@ -128,3 +127,6 @@ STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 )
 AWS_DEFAULT_ACL = None
+print("----------------")
+print(STATIC_URL)
+print("----------------")
