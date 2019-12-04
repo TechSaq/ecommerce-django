@@ -128,6 +128,8 @@ STATICFILES_FINDERS = (
 )
 AWS_DEFAULT_ACL = None
 
+DEFAULT_FILE_STORAGE = 'arwaecomm.storage_backends.MediaStorage'
+
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
