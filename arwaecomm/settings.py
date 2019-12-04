@@ -127,6 +127,3 @@ STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 )
 AWS_DEFAULT_ACL = None
-print("----------------")
-print(STATIC_URL)
-print("----------------")
