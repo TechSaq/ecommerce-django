@@ -99,7 +99,7 @@ LOGIN_REDIRECT_URL = '/'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
-STRIPE_SECRET_KEY = "sk_test_3pALFqN1hDtd3CojPFW88dWi009Ybdrqsy"
+STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY')
 
 db_from_env = dj_database_url.config(conn_max_age=500)
 DATABASES['default'].update(db_from_env)
