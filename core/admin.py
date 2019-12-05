@@ -1,5 +1,6 @@
 from django.contrib import admin
 from .models import Item, Order, OrderItem, Address, Payment, Coupon, Category
+from django.utils.safestring import mark_safe
 
 
 class OrderAdmin(admin.ModelAdmin):
@@ -52,6 +53,15 @@ class ItemAdmin(admin.ModelAdmin):
     prepopulated_fields = {"slug": ("title",)}
     list_display = ['title', 'image', 'price', 'category']
     list_filter = ['category']
+    
+    # to display image in admin
+    def product_image(self, obj):
+        return mark_safe('<img src="/{url}" width="{width}" height={height} />'.format(
+            url = obj.img.url,
+            width='300px',
+            height='auto',
+            )
+    )
 
 
 admin.site.register(Item, ItemAdmin)
