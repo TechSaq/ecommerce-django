@@ -53,6 +53,7 @@ class ItemAdmin(admin.ModelAdmin):
     prepopulated_fields = {"slug": ("title",)}
     list_display = ['title', 'image', 'price', 'category']
     list_filter = ['category']
+    readonly_fields = ["product_image"]
     
     # to display image in admin
     def product_image(self, obj):
