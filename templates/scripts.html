@@ -14,4 +14,12 @@
     // Animations initialization
     new WOW().init();
 
+
+    var alert_close = $("button.close");
+    console.log(alert_close);
+    alert_close.on('click', function(){
+      $(this).parent().parent().slideUp()
+    })
+    
+
   </script>
