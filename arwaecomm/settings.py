@@ -132,7 +132,7 @@ if not DEBUG:
     )
     AWS_DEFAULT_ACL = None
 
-# DEFAULT_FILE_STORAGE = 'arwaecomm.storage_backends.MediaStorage'
+    DEFAULT_FILE_STORAGE = 'arwaecomm.storage_backends.MediaStorage'
 
     LOGGING = {
         'version': 1,
