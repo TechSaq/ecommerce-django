@@ -3,19 +3,14 @@ import os
 import django_heroku
 from decouple import config
 
-ENVIRONMENT = os.getenv('ENVIRONMENT', 'development')
 
 DEBUG = False
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = config('SECRET_KEY')
+DATABASE_URL = config('DATABASE_URL')
 
 if DEBUG:
     ALLOWED_HOSTS = []
-else:
-    ALLOWED_HOSTS = ['arwaecomm.herokuapp.com']
-    DEBUG_PROPAGATE_EXCEPTIONS = True
-    
-DATABASE_URL = config('DATABASE_URL')
 
 
 INSTALLED_APPS = [
@@ -81,17 +76,6 @@ DATABASES = {
     "default": {}
 }
 
-if not DEBUG:
-    SECRET_KEY = config('SECRET_KEY')
-    SESSION_COOKIE_SECURE = True
-    SECURE_BROWSER_XSS_FILTER = True
-    SECURE_CONTENT_TYPE_NOSNIFF = True
-    SECURE_HSTS_INCLUDE_SUBDOMAINS = True
-    SECURE_HSTS_SECONDS = 31536000
-    SECURE_REDIRECT_EXEMPT = []
-    SECURE_SSL_REDIRECT = True
-    SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
-
 
 AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
@@ -109,6 +93,19 @@ db_from_env = dj_database_url.config(conn_max_age=500)
 DATABASES['default'].update(db_from_env)
 
 if not DEBUG:
+    ALLOWED_HOSTS = ['arwaecomm.herokuapp.com']
+    DEBUG_PROPAGATE_EXCEPTIONS = True
+
+    SECRET_KEY = config('SECRET_KEY')
+    SESSION_COOKIE_SECURE = True
+    SECURE_BROWSER_XSS_FILTER = True
+    SECURE_CONTENT_TYPE_NOSNIFF = True
+    SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+    SECURE_HSTS_SECONDS = 31536000
+    SECURE_REDIRECT_EXEMPT = []
+    SECURE_SSL_REDIRECT = True
+    SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
     # Amazon s3 config
     AWS_LOCATION = config('AWS_LOCATION')
     AWS_ACCESS_KEY_ID = config('AWS_ACCESS_KEY_ID')
@@ -141,15 +138,15 @@ if not DEBUG:
             'console': {
                 'class': 'logging.StreamHandler',
             },
-        'file': {
-            'level': 'DEBUG',
-            'class': 'logging.FileHandler',
-            'filename': 'log.django',
-        },
+            'file': {
+                'level': 'DEBUG',
+                'class': 'logging.FileHandler',
+                'filename': 'log.django',
+            },
         },
         'loggers': {
             'django': {
-                'handlers': ['console','file'],
+                'handlers': ['console', 'file'],
                 'level': os.getenv('DJANGO_LOG_LEVEL', 'DEBUG'),
             },
         },
